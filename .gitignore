@@ -1,6 +1,7 @@
 # wyłączenie z śledzenia poniższych plików lub katalogów
 # 1. katalog
 .idea/
+out/
 # 2. plik -> fileName.ext
 # 3. wszystkie pliki z rozszerzeniem -> *.ext
 # 4. wyłączenie z ignoraowania pliku -> !git fileName.ext
