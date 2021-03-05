@@ -1,3 +1,5 @@
+package w1;
+
 // ALT + Ins -> generate
 public class User {
     private String email;
