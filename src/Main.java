@@ -9,5 +9,11 @@ public class Main {
         System.out.println("user 1 is created");
         System.out.println("email: " + user1.getEmail());
         System.out.println("password: " + user1.getPassword());
+        User user2 = new User(
+                "ak@ak.pl",
+                "ak");
+        System.out.println("user 2 is created");
+        System.out.println("email: " + user2.getEmail());
+        System.out.println("password: " + user2.getPassword());
     }
 }
