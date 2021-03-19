@@ -7,7 +7,7 @@ import lombok.*;
 @Getter             // automatycznie dodaje w kodzie gettery
 @Setter             // automatycznie dodaje w kodzie settery
 @ToString           // automatycznie dodaje w kodzie toString
-public class Animal {
+public class Animal extends Object{     // każda klasa rozszerza nasklasę Object
     private String species;
     private int noOfLegs;
     private float height;
@@ -21,13 +21,13 @@ public class Animal {
     // -> float       -> 0.0
     // -> char        -> ''
     // -> boolean     -> false
-    public static void main(String[] args) {
-        Animal animal = new Animal();
-        System.out.println("Species: " + animal.getSpecies());
-        System.out.println("Legs: " + animal.getNoOfLegs());
-        System.out.println("Height: " + animal.getHeight());
-        System.out.println("Sex: " + animal.getSex());
-        System.out.println("Eat meat: " + animal.isCarnivorous());
-//        System.out.println("Eat meat: " + animal.getCarniv());
-    }
+//    public static void main(String[] args) {
+//        Animal animal = new Animal();
+//        System.out.println("Species: " + animal.getSpecies());
+//        System.out.println("Legs: " + animal.getNoOfLegs());
+//        System.out.println("Height: " + animal.getHeight());
+//        System.out.println("Sex: " + animal.getSex());
+//        System.out.println("Eat meat: " + animal.isCarnivorous());
+////        System.out.println("Eat meat: " + animal.getCarniv());
+//    }
 }
