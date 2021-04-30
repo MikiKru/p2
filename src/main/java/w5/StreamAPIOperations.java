@@ -22,6 +22,17 @@ public class StreamAPIOperations {
                 .forEach(number -> System.out.print(number + " "));
         System.out.println();
         System.out.println("LICZBY PARZYSTE - BEZ POWTÓRZEN");
+        Arrays.stream(numbers)
+                .filter(number -> number % 2 == 0)
+                .distinct()
+                .forEach(number -> System.out.print(number + " "));
+        System.out.println();
+        System.out.println("LICZBY PARZYSTE - PIERWSZE 3");
+        Arrays.stream(numbers)
+                .filter(number -> number % 2 == 0)
+                .limit(3)
+                .forEach(number -> System.out.print(number + " "));
+        System.out.println();
 
     }
 }
