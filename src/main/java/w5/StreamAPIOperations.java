@@ -16,5 +16,12 @@ public class StreamAPIOperations {
                 .forEach(number -> System.out.print(number + " "));   // void
 
         System.out.println();
+        System.out.println("LICZBY PARZYSTE");
+        Arrays.stream(numbers)
+                .filter(number -> number % 2 == 0)
+                .forEach(number -> System.out.print(number + " "));
+        System.out.println();
+        System.out.println("LICZBY PARZYSTE - BEZ POWTÓRZEN");
+
     }
 }
