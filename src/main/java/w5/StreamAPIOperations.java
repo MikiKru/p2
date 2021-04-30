@@ -1,6 +1,9 @@
 package w5;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class StreamAPIOperations {
     public static void main(String[] args) {
@@ -33,6 +36,23 @@ public class StreamAPIOperations {
                 .limit(3)
                 .forEach(number -> System.out.print(number + " "));
         System.out.println();
+        System.out.println("KONWERSJA NA LISTĘ ZAWIERAJĄCA TYP STRING");
+        List<String> numbersList = Arrays.stream(numbers)   // Stream<Integer>
+                .mapToObj(number -> "value: " + number)     // Stream<String>
+                .collect(Collectors.toList());              // List<String>
+        System.out.println(numbersList);
+        System.out.println("STATYSTYKI");
+        OptionalInt optionalInt = Arrays.stream(numbers).max();
+        if(optionalInt.isPresent()){                        // gdy zwraca nie pustą wartość max
+            System.out.println("MAX: " + optionalInt.getAsInt());
+        } else {                                            // gdy max jest null
+            System.out.println("LISTA PUSTA - NIE MOGĘ ZWRÓCIC WARTOSCI MAX");
+        }
+        System.out.println("MIN: " + Arrays.stream(numbers).min().getAsInt());
+        System.out.println("SUM: " + Arrays.stream(numbers).sum());
+        System.out.println("AVG: " + Arrays.stream(numbers).average().getAsDouble());
+        System.out.println("COUNT: " + Arrays.stream(numbers).count());
+
 
     }
 }
