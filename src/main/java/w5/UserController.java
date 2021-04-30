@@ -1,10 +1,8 @@
 package w5;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class UserController {
     private static List<User> users = new ArrayList<>(Arrays.asList(
@@ -26,6 +24,19 @@ public class UserController {
                 .sorted(Comparator.comparing(User::getBithDate).reversed())
                 .forEach(user -> System.out.println(user));
         System.out.println("Wypisz użytkoników posortowanych po loginie od a do z");
-
+        users.stream()
+                .sorted(Comparator.comparing(User::getEmail))
+                .forEach(user -> System.out.println(user));
+        String usersToCSV = users.stream()
+                .sorted(Comparator.comparing(User::getEmail))
+                .map(user -> String.format("%s;%s;%s;%s", user.getId(), user.getEmail(), user.getBithDate(), user.isStatus()))
+                .collect(Collectors.joining("\n"));
+        System.out.println("TO FILE .csv");
+        System.out.println("id;email;bithdate;status\n"+usersToCSV);
+        System.out.println("logowanie");
+        Optional<User> isUser = users.stream()
+                .filter(user -> user.getEmail().equals("m@m.pl") && user.getPassword().equals("m"))
+                .findFirst();
+        System.out.println("Czy zalogowano: " + isUser.isPresent());
     }
 }
