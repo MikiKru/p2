@@ -1,5 +1,7 @@
 package w5;
 
+import java.util.Arrays;
+
 public class StreamAPIOperations {
     public static void main(String[] args) {
         int [] numbers = {1,2,3,4,5,4,3,2,1,5,6,7,8,7};
@@ -9,6 +11,10 @@ public class StreamAPIOperations {
         }
         System.out.println();
         System.out.println("STREAM API");
+        Arrays                                                        // int []
+                .stream(numbers)                                      // Stream<Integer>
+                .forEach(number -> System.out.print(number + " "));   // void
 
+        System.out.println();
     }
 }
