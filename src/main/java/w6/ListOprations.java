@@ -38,6 +38,10 @@ public class ListOprations {
                 }
             }
         }
+        // usuwanie elementów
+        lo.usersList.remove(1);
+        lo.usersList.remove(user3);
+        lo.usersList.forEach(System.out::println);
 
     }
 }
