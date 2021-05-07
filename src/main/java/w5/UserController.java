@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class UserController {
     private static List<User> users = new ArrayList<>(Arrays.asList(
             new User(1,"m@m.pl","m", LocalDate.of(2000,4,3), true),
-            new User(2,"e@e.pl","eee", LocalDate.of(2001,1,4), true),
+            new User(2,"e@e.pl","eee", LocalDate.of(2000,1,4), true),
             new User(3,"r@r.pl","rr", LocalDate.of(2002,12,7), false),
             new User(4,"q@q.pl","q", LocalDate.of(1987,5,8), true),
             new User(5,"b@b.pl","bbb", LocalDate.of(1999,2,11), true)
@@ -38,5 +38,9 @@ public class UserController {
                 .filter(user -> user.getEmail().equals("m@m.pl") && user.getPassword().equals("m"))
                 .findFirst();
         System.out.println("Czy zalogowano: " + isUser.isPresent());
+        System.out.println("GRUPOWANIE UŻYTKOWNIKÓW PO STATUSIE");
+        System.out.println(users.stream().collect(Collectors.groupingBy(user -> user.isStatus())));
+        System.out.println("GRUPOWANIE UZYTKOWNIKÓW PO ROKU URODZENIA");
+        System.out.println(users.stream().collect(Collectors.groupingBy(user -> user.getBithDate().getYear())));
     }
 }
