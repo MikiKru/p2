@@ -26,10 +26,35 @@ public class Main {
                         Thread.currentThread().sleep(1300);
                         int outcome = new Random().nextInt(100)*10;
                         System.out.println("Outcome: " + outcome);
-                        account.setSaldo(account.getSaldo() - outcome);
+                        if(outcome <= account.getSaldo()) {
+                            account.setSaldo(account.getSaldo() - outcome);
+                        } else {
+                            System.out.println("Not enougth saldo");
+                        }
                         System.out.println("Saldo: " + account.getSaldo());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } } } });
+        Thread thOutcome2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 15; i++){
+                    try {
+                        Thread.currentThread().sleep(1300);
+                        int outcome = new Random().nextInt(100)*10;
+                        System.out.println("Outcome: " + outcome);
+                        if(outcome <= account.getSaldo()) {
+                            account.setSaldo(account.getSaldo() - outcome);
+                        } else {
+                            System.out.println("Not enougth saldo");
+                        }
+                        System.out.println("Saldo: " + account.getSaldo());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } } } });
+        // startujemy wątki - równolegle
+        thIncome.start();
+        thOutcome.start();
+        thOutcome2.start();
     }
 }

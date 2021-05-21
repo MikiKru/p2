@@ -8,7 +8,8 @@ public class Account {
     public int getSaldo() {
         return saldo;
     }
-    public void setSaldo(int saldo) {
+    // WĄTKI NIE WYKONUJĄCE AKTUALNIE METODY W STATUSIE BLOCKED!
+    public synchronized void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 }
